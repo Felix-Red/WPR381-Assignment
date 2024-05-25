@@ -4,8 +4,8 @@ import readlineSync from 'readline-sync';
 //configure .env file so we dont expose the client id and client secret
 dotenv.config();
 //set the constants for the keys and endpoints we need to hit 
-const CLIENT_ID = 'ce7ae7f777fa433c83d3ee099be72434';
-const CLIENT_SECRET = '9a43da115238421c9557d6d063704893';
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
 const SPOTIFY_SEARCH_URL = 'https://api.spotify.com/v1/search';
 
