@@ -1,45 +1,35 @@
-<<<<<<< HEAD
-import { searchSpotify, readQueryFromFile, executeCommand} from "./spotify.js";
-import readlineSync from 'readline-sync';
-=======
-import { searchSpotify } from "./spotify.js";
-import { readQueryFromFile} from "./spotify.js";
-import { executeCommand } from "./spotify.js";
+import { searchSpotify, readQueryFromFile } from "./spotify.js";  // Import functions from spotify.js
+import readlineSync from 'readline-sync';  // Import readlineSync for synchronous command-line interaction
 
-/*async function main() {
-    const result = await searchSpotify("drake");
-    console.log(result);
-}*/
-
->>>>>>> d097b1f810604e3706f04c8f0a82adf2ed7538ab
-
+// Main function to display a menu and handle user input
 async function main() {
     const menuOptions = [
-        'Perform a Spotify look-up for a song',
-        'Read a query from a text file',
-        'Exit'
+        'Perform a Spotify look-up for a song',  // Option to search for a song on Spotify
+        'Read a query from a text file',  // Option to read a search query from a file
+        'Exit'  // Option to exit the program
     ];
 
     while (true) {
+        // Display the menu and get user selection
         const index = readlineSync.keyInSelect(menuOptions, 'Choose an option:');
 
         switch (index) {
-            case 0:
-                const songName = readlineSync.question('Enter the song name: ');
-                await searchSpotify(songName);
+            case 0:  // Perform a Spotify look-up for a song
+                const songName = readlineSync.question('Enter the song name: ');  // Prompt user for song name
+                await searchSpotify(songName);  // Await the searchSpotify function
                 break;
-            case 1:
-                const filePath = readlineSync.question('Enter the file path: ');
-                readQueryFromFile(filePath);
+            case 1:  // Read a query from a text file
+                const filePath = readlineSync.question('Enter the file path: ');  // Prompt user for file path
+                await readQueryFromFile(filePath);  // Await the readQueryFromFile function
                 break;
-            case 2:
+            case 2:  // Exit the program
                 console.log('Exiting...');
-                return;
-            default:
+                return;  // Exit the loop and function
+            default:  // Handle invalid selection
                 console.log('Invalid option. Exiting...');
-                return;
+                return;  // Exit the loop and function
         }
     }
 }
 
-main();
+main();  // Call the main function to start the program
