@@ -10,7 +10,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
 const SPOTIFY_SEARCH_URL = 'https://api.spotify.com/v1/search';
 
-async function getAccessToken() {
+export async function getAccessToken() {
     try {
         const response = await fetch(`${SPOTIFY_TOKEN_URL}`, {
             method: 'POST',
@@ -32,7 +32,7 @@ async function getAccessToken() {
     }
 }
 
-async function searchSpotify(query) {
+export async function searchSpotify(query) {
     try {
         const accessToken = await getAccessToken();
 
@@ -73,7 +73,7 @@ async function searchSpotify(query) {
     }
 }
 
-function readQueryFromFile(filePath) {
+export function readQueryFromFile(filePath) {
     try {
         const query = fs.readFileSync(filePath, 'utf8').trim();
         console.log(`Executing query from file: ${query}`);
@@ -83,7 +83,7 @@ function readQueryFromFile(filePath) {
     }
 }
 
-function executeCommand(commandQuery) {
+export function executeCommand(commandQuery) {
     const [command, ...args] = commandQuery.split(' ');
     const query = args.join(' ');
 
@@ -97,33 +97,33 @@ function executeCommand(commandQuery) {
     }
 }
 
-async function main() {
-    const menuOptions = [
-        'Perform a Spotify look-up for a song',
-        'Read a query from a text file',
-        'Exit'
-    ];
+// async function main() {
+//     const menuOptions = [
+//         'Perform a Spotify look-up for a song',
+//         'Read a query from a text file',
+//         'Exit'
+//     ];
 
-    while (true) {
-        const index = readlineSync.keyInSelect(menuOptions, 'Choose an option:');
+//     while (true) {
+//         const index = readlineSync.keyInSelect(menuOptions, 'Choose an option:');
 
-        switch (index) {
-            case 0:
-                const songName = readlineSync.question('Enter the song name: ');
-                await searchSpotify(songName);
-                break;
-            case 1:
-                const filePath = readlineSync.question('Enter the file path: ');
-                readQueryFromFile(filePath);
-                break;
-            case 2:
-                console.log('Exiting...');
-                return;
-            default:
-                console.log('Invalid option. Exiting...');
-                return;
-        }
-    }
-}
+//         switch (index) {
+//             case 0:
+//                 const songName = readlineSync.question('Enter the song name: ');
+//                 await searchSpotify(songName);
+//                 break;
+//             case 1:
+//                 const filePath = readlineSync.question('Enter the file path: ');
+//                 readQueryFromFile(filePath);
+//                 break;
+//             case 2:
+//                 console.log('Exiting...');
+//                 return;
+//             default:
+//                 console.log('Invalid option. Exiting...');
+//                 return;
+//         }
+//     }
+// }
 
-main();
+// main();
