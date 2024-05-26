@@ -5,8 +5,8 @@ import { executeCommand } from "./spotify.js";
 /*async function main() {
     const result = await searchSpotify("drake");
     console.log(result);
-}
-*/
+}*/
+
 
 async function main() {
     console.log('---START PAGE---');
