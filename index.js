@@ -11,7 +11,7 @@ async function main() {
 
     while (true) {
         // Display the menu and get user selection
-        const index = readlineSync.keyInSelect(menuOptions, 'Choose an option:');
+        const index = readlineSync.keyInSelect(menuOptions, 'Choose an option:', {cancel: false});
 
         switch (index) {
             case 0:  // Perform a Spotify look-up for a song
