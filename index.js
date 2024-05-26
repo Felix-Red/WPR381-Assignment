@@ -1,5 +1,17 @@
+<<<<<<< HEAD
 import { searchSpotify, readQueryFromFile, executeCommand} from "./spotify.js";
 import readlineSync from 'readline-sync';
+=======
+import { searchSpotify } from "./spotify.js";
+import { readQueryFromFile} from "./spotify.js";
+import { executeCommand } from "./spotify.js";
+
+/*async function main() {
+    const result = await searchSpotify("drake");
+    console.log(result);
+}*/
+
+>>>>>>> d097b1f810604e3706f04c8f0a82adf2ed7538ab
 
 async function main() {
     const menuOptions = [

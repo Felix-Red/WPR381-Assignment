@@ -5,8 +5,8 @@ import fetch from 'node-fetch';
 
 dotenv.config();
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const CLIENT_ID = 'ce7ae7f777fa433c83d3ee099be72434';
+const CLIENT_SECRET = '9a43da115238421c9557d6d063704893';
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
 const SPOTIFY_SEARCH_URL = 'https://api.spotify.com/v1/search';
 
@@ -126,4 +126,8 @@ export function executeCommand(commandQuery) {
 //     }
 // }
 
+<<<<<<< HEAD
 // main();
+=======
+main();
+>>>>>>> d097b1f810604e3706f04c8f0a82adf2ed7538ab
